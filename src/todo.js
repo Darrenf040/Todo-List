@@ -1,22 +1,38 @@
 export default class Todo{
+    constructor(){
+        const allTasks = document.querySelectorAll(".task-container");
+        this.title = `task${allTasks.length + 1}`;
+        this.priority = 'low';
+    }
     todoInputFields(){
         const todoBtn = document.querySelector(".todo-btn");
         //show the input fields after clicking add todo
         todoBtn.addEventListener("click", todoDialog);
     }
     createTask(){        
+        const modal = document.querySelector(".todo-dialog");
         const confirm = document.querySelector(".add-task");
         //when user hits confirm do these actions 
         confirm.addEventListener("click", () => {
-            const modal = document.querySelector(".todo-dialog");
-            //close the dialog
-            modal.close();
-            //save the input values
-            const inputValues = getInputValues();
-            //create task ui
-            taskCard();
+        //save the input values on click
+        const inputValues = getInputValues();
+            console.log(inputValues);
+            if(inputValues[0] == ''){
+                //create default for task card if user doesnt input title
+                const t = new Todo();
+                console.log(t);
+                modal.close();
+                taskCard();
+            }
+            else{
+                //close the dialog
+                modal.close();
+                //create task ui
+                taskCard();    
+            }
         })
     }
+
 }
 function todoDialog(){
     const modal = document.querySelector(".todo-dialog");
