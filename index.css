@@ -43,3 +43,10 @@ h1,p{
 .nest{
     margin-left: 20px;
 }
+.action-container{
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar-content h1{
+    font-size: 24px;
+}
