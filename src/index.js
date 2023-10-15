@@ -1,4 +1,4 @@
-import input from './todo.js';
+import input from './modules/todo.js';
 
 const t = new input();
 
