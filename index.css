@@ -50,3 +50,7 @@ h1,p{
 .sidebar-content h1{
     font-size: 24px;
 }
+.nest:hover{
+    color: gray;
+
+}
