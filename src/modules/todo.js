@@ -1,4 +1,5 @@
 import '../styles/todoCard.css';
+import editIcon from '../assets/images/edit.svg';
 
 export default class Todo{
     constructor(dueDate, description, priority){
@@ -84,6 +85,7 @@ function taskContainer(){
     taskContainer.innerHTML = `<div>
     <h1 class="todo-title"></h1>
 </div>
+<div class="edit-container"><img src="${editIcon}" class="edit-image"></div>
 <div class="todo-container-btns">
     <div>
         <p class="due-date"></p>
