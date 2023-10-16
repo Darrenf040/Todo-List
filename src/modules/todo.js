@@ -1,3 +1,5 @@
+import '../styles/todoCard.css';
+
 export default class Todo{
     constructor(dueDate, description, priority){
         const allTasks = document.querySelectorAll(".task-container");

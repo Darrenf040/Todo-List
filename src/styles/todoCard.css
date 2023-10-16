@@ -1,0 +1,26 @@
+.low{
+    border:5px solid #84cc16;
+}
+.medium{
+    border:5px solid #fbbf24 ;
+}
+.high{
+    border:5px solid #f43f5e;
+}
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.task-container{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding:  0 10px;
+}
+.todo-container-btns{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
