@@ -17,7 +17,7 @@ export default class Todo{
     createTask(){        
         const modal = document.querySelector(".todo-dialog");
         const confirm = document.querySelector(".add-task");
-        
+
         confirm.addEventListener("click", () => {
             taskCard(updateCardValues());
             modal.close();
@@ -46,17 +46,28 @@ function taskContainer(){
     taskContainer.classList.add("task-container")
 
     taskContainer.innerHTML = `<div>
-    <h1 class="todo-title"></h1>
-</div>
-<div class="edit-container"><img src="${editIcon}" class="edit-image"></div>
-<div class="todo-container-btns">
-    <div>
-        <p class="due-date"></p>
+        <h1 class="todo-title"></h1>
     </div>
-    <button type="button" class="details">Details</button>
-    <input type="checkbox">
-</div>`;
-return taskContainer;
+    <div class="edit-container"><img src="${editIcon}" class="edit-image"></div>
+    <div class="todo-container-btns">
+        <div>
+            <p class="due-date"></p>
+        </div>
+        <button type="button" class="details">Details</button>
+        <input type="checkbox">
+    </div>`;
+
+    const detailsBtn = taskContainer.querySelector(".details");
+    detailsBtn.addEventListener("click", () => {
+        console.log("hi");
+    });
+    const editBtn = taskContainer.querySelector(".edit-image");
+    editBtn.addEventListener("click", () => {
+        console.log("edit clickkk");
+    })
+
+
+    return taskContainer;
 }
 function updateCardValues(){
     const task = taskContainer();
@@ -90,4 +101,3 @@ function taskCard(currentTaskContent){
     const content = document.querySelector(".content");
     content.append(currentTaskContent);
 }
-
