@@ -17,49 +17,12 @@ export default class Todo{
     createTask(){        
         const modal = document.querySelector(".todo-dialog");
         const confirm = document.querySelector(".add-task");
-
-        //when user hits confirm do these actions 
+        
         confirm.addEventListener("click", () => {
-            //save the input values after submit
-            const inputValues = getInputValues();
-            const title = inputValues[0];
-            const date = inputValues[1];
-            const description = inputValues[2]
-            const priority = inputValues[3];
-
-            //create instances of the task container after each submit
-            this.cardContainer = taskContainer(); 
-            //elements of the new container instance
-            const titleElement = this.cardContainer.querySelector(".todo-title");
-            const dateElement = this.cardContainer.querySelector(".due-date");
-            
-            //create an instances of the class
-            const t = new Todo(date,description,priority);
-            //add priority name as the class name for css styling
-            this.cardContainer.classList.add(t.priority);
-
-            //returns true when user doesnt enter a title name
-            if(title == ''){ 
-                modal.close();
-                //set default title name using constructor default value
-                titleElement.textContent = t.title;
-                dateElement.textContent = t.dueDate;
-                taskCard(this.cardContainer);
-            }
-            else{
-                modal.close();
-                //overite default title value with user input title
-                t.title = title;
-
-                //change the elements text for each instance using 
-                //'t' class instance property values 
-                titleElement.textContent = t.title;
-                dateElement.textContent = t.dueDate;
-                taskCard(this.cardContainer);
-            }
+            taskCard(updateCardValues());
+            modal.close();
         })//event listener
     }
-
 }
 function todoDialog(){
     const modal = document.querySelector(".todo-dialog");
@@ -90,12 +53,41 @@ function taskContainer(){
     <div>
         <p class="due-date"></p>
     </div>
-    <button type="button">Details</button>
+    <button type="button" class="details">Details</button>
     <input type="checkbox">
 </div>`;
 return taskContainer;
+}
+function updateCardValues(){
+    const task = taskContainer();
+    //save user input values 
+    const input = getInputValues();
+    const title = input[0];
+    const date = input[1];
+    // const description = input[2];
+    const priority = input[3];
+
+    const titleElement =  task.querySelector('.todo-title');
+    //when user doesnt type a title, set a default name using
+    //class constructor value
+    if(title == ''){
+        const t = new Todo();
+        titleElement.textContent = t.title;
+    }
+    else{
+        //change card title to user inputed value
+        titleElement.textContent = title;
+    }
+
+    //change the card text content with the user input values
+    const dateElement = task.querySelector(".due-date");
+    dateElement.textContent = date;
+    task.classList.add(priority);
+
+    return task;
 }
 function taskCard(currentTaskContent){
     const content = document.querySelector(".content");
     content.append(currentTaskContent);
 }
+
