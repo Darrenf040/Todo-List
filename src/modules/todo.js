@@ -27,7 +27,15 @@ export default class Todo{
 }
 function todoDialog(){
     const modal = document.querySelector(".todo-dialog");
-    modal.show();
+
+    //hide the confirm edit button
+    const confirmEdit = document.querySelector(".confirm-edit");
+    confirmEdit.style.display = 'none';
+    //show the add task confirm button
+    const addTask = document.querySelector(".add-task");
+    addTask.style.display = 'block';
+
+    modal.showModal();
 }
 function getInputValues(){
     let inputVals = [];
@@ -64,9 +72,15 @@ function taskContainer(){
     });
     const editBtn = taskContainer.querySelector(".edit-image");
     editBtn.addEventListener("click", () => {
-        console.log("edit clickkk");
+        const modal = document.querySelector(".todo-dialog");
+        modal.showModal();
+        //hide the add task confirm button
+        const addTask = document.querySelector(".add-task");
+        addTask.style.display = 'none';
+        //show the confirm edit button
+        const confirmEdit = document.querySelector(".confirm-edit");
+        confirmEdit.style.display = "block";
     })
-
 
     return taskContainer;
 }
