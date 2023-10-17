@@ -21,6 +21,7 @@ export default class Todo{
         confirm.addEventListener("click", () => {
             taskCard(updateCardValues());
             modal.close();
+            clearForm();
         })//event listener
     }
 }
@@ -100,4 +101,8 @@ function updateCardValues(){
 function taskCard(currentTaskContent){
     const content = document.querySelector(".content");
     content.append(currentTaskContent);
+}
+function clearForm(){
+    const form = document.getElementById("form");
+    form.reset();
 }
