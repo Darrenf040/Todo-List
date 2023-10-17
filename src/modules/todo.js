@@ -88,9 +88,9 @@ function updateCardValues(){
     const task = taskContainer();
     //save user input values 
     const input = getInputValues();
-    const title = input[0];
+    let title = input[0];
     const date = input[1];
-    // const description = input[2];
+    const description = input[2];
     const priority = input[3];
 
     const titleElement =  task.querySelector('.todo-title');
@@ -98,7 +98,8 @@ function updateCardValues(){
     //class constructor value
     if(title == ''){
         const t = new Todo();
-        titleElement.textContent = t.title;
+        title = t.title;
+        titleElement.textContent = title;
     }
     else{
         //change card title to user inputed value
@@ -109,6 +110,11 @@ function updateCardValues(){
     const dateElement = task.querySelector(".due-date");
     dateElement.textContent = date;
     task.classList.add(priority);
+
+    task.setAttribute("data-title", title);
+    task.setAttribute("data-due-date", date);
+    task.setAttribute("data-description", description);
+    task.setAttribute("data-priority", priority);
 
     return task;
 }
