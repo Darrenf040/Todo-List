@@ -71,7 +71,7 @@ function taskContainer(){
         console.log("hi");
     });
     const editBtn = taskContainer.querySelector(".edit-image");
-    editBtn.addEventListener("click", () => {
+    editBtn.addEventListener("click", (e) => {
         const modal = document.querySelector(".todo-dialog");
         modal.showModal();
         //hide the add task confirm button
@@ -80,6 +80,18 @@ function taskContainer(){
         //show the confirm edit button
         const confirmEdit = document.querySelector(".confirm-edit");
         confirmEdit.style.display = "block";
+        //select the current taskContainer from the 
+        //edit button that was clicked parent
+        const currentTask = e.target.parentElement.parentElement;
+        //set the form input values to the current task data
+        const title = document.getElementById("title");
+        title.value = currentTask.dataset.title;
+        const date = document.getElementById("date");
+        date.value = currentTask.dataset.dueDate;
+        const description = document.getElementById("description");
+        description.value = currentTask.dataset.description;
+        const priority = document.getElementById("priority");
+        priority.value = currentTask.dataset.priority;
     })
 
     return taskContainer;
