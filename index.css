@@ -53,3 +53,9 @@ h1,p{
 .nest:hover{
     color: gray;
 }
+dialog{
+    padding: 0;
+}
+form{
+    padding: 16px;
+}
