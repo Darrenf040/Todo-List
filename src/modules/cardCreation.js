@@ -1,6 +1,7 @@
 import editIcon from '../assets/images/edit.svg';
 import { getInputValues } from './dialog';
 import Todo from './todo.js';
+import { editButton } from './edit';
 
 export function taskContainer(){
     const taskContainer = document.createElement("div");
@@ -22,29 +23,9 @@ export function taskContainer(){
     detailsBtn.addEventListener("click", () => {
         console.log("hi");
     });
-    const editBtn = taskContainer.querySelector(".edit-image");
-    editBtn.addEventListener("click", (e) => {
-        const modal = document.querySelector(".todo-dialog");
-        modal.showModal();
-        //hide the add task confirm button
-        const addTask = document.querySelector(".add-task");
-        addTask.style.display = 'none';
-        //show the confirm edit button
-        const confirmEdit = document.querySelector(".confirm-edit");
-        confirmEdit.style.display = "block";
-        //select the current taskContainer from the 
-        //edit button that was clicked parent
-        const currentTask = e.target.parentElement.parentElement;
-        //set the form input values to the current task data
-        const title = document.getElementById("title");
-        title.value = currentTask.dataset.title;
-        const date = document.getElementById("date");
-        date.value = currentTask.dataset.dueDate;
-        const description = document.getElementById("description");
-        description.value = currentTask.dataset.description;
-        const priority = document.getElementById("priority");
-        priority.value = currentTask.dataset.priority;
-    })
+    //adds event listenr to edit button to set 
+    //form values based on the current task
+    editButton(taskContainer);
 
     return taskContainer;
 }
@@ -86,4 +67,3 @@ export function addCardToDisplay(currentTaskContent){
     const content = document.querySelector(".content");
     content.append(currentTaskContent);
 }
-
