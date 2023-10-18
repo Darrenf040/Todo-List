@@ -33,6 +33,7 @@ h1,p{
     display: flex;
     height: fit-content;
     flex: 1;
+    max-height: 508px;
 }
 .sidebar-content{
     padding: 20px;
@@ -58,4 +59,8 @@ dialog{
 }
 form{
     padding: 16px;
+}
+.content{
+    overflow-y:auto;
+
 }
