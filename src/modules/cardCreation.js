@@ -2,6 +2,7 @@ import editIcon from '../assets/images/edit.svg';
 import { getInputValues } from './dialog';
 import Todo from './todo.js';
 import { editButton } from './edit';
+import { detailsPopup } from './details';
 
 export function taskContainer(){
     const taskContainer = document.createElement("div");
@@ -19,13 +20,10 @@ export function taskContainer(){
         <input type="checkbox">
     </div>`;
 
-    const detailsBtn = taskContainer.querySelector(".details");
-    detailsBtn.addEventListener("click", () => {
-        console.log("hi");
-    });
     //adds event listenr to edit button to set 
     //form values based on the current task
     editButton(taskContainer);
+    detailsPopup(taskContainer);
 
     return taskContainer;
 }

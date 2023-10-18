@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+#entire-popup-container{
+    width: 380px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+.details-container{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+}
+.description-container h1{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.description-text {
+    text-align: center;
+}
+.description-container{
+    padding: 10px 20px;
+    width: 100%;
+    max-height: 170px;
+    overflow-y: auto;
+}
+.bottom-details-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-details-container > *{
+    width: 120px;
+    padding: 30px 0;
+    text-align: center;
+}
+.description-container, .details-priority, .details-due-date {
+    border: 1px solid black;
+}
+.details-dialog{
+    border: none;
+}
+.details-dialog::backdrop{
+    backdrop-filter: blur(8px);
+}

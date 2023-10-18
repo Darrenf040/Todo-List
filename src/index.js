@@ -1,10 +1,12 @@
 import input from './modules/todo.js';
 
 window.addEventListener("click", e => {
-    //closes popup when user clicks outside of it
+    //closes any popup when user clicks outside of it
     if(e.target.matches("dialog")){
-        const modal = document.querySelector(".todo-dialog");
-        modal.close();
+        const modals = document.querySelectorAll("dialog");
+        modals.forEach(modal => {
+            modal.close();
+        })
         const form = document.getElementById("form");
         form.reset();    
     }

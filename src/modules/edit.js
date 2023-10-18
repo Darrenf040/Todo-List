@@ -34,7 +34,7 @@ export function editButton(taskContainer){
     confirmEdit.addEventListener("click", () => {
         const curentTaskTitle = currentInputVals[0];
         //select the current task container by getting its title data
-        const currentTask = document.querySelector(`[data-title=${curentTaskTitle}]`);
+        const currentTask = document.querySelector(`[data-title="${curentTaskTitle}"]`);
         //save the new input values
         const confirmEditInputVals = getInputValues();
         const updatedTitle = confirmEditInputVals[0];
