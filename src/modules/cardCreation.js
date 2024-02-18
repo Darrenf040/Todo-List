@@ -3,6 +3,7 @@ import { getInputValues } from './dialog';
 import Todo from './todo.js';
 import { editButton } from './edit';
 import { detailsPopup } from './details';
+import { deleteBtn } from './delete';
 
 export function taskContainer(){
     const taskContainer = document.createElement("div");
@@ -17,6 +18,7 @@ export function taskContainer(){
             <p class="due-date"></p>
         </div>
         <button type="button" class="details">Details</button>
+        <button type="button" class="delete">Delete</button>
         <input type="checkbox">
     </div>`;
 
@@ -24,6 +26,7 @@ export function taskContainer(){
     //form values based on the current task
     editButton(taskContainer);
     detailsPopup(taskContainer);
+    deleteBtn(taskContainer);
 
     return taskContainer;
 }
