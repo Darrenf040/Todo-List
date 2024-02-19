@@ -5,5 +5,4 @@ export function deleteBtn(taskContainer){
             const cardClicked = e.target.parentElement.parentElement;
             cardClicked.remove();
         })
-        console.log(cardDeleteBtn);
     }
