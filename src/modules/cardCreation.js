@@ -65,6 +65,6 @@ export function updateCardValues(){
     return task;
 }
 export function addCardToDisplay(currentTaskContent){
-    const content = document.querySelector(".content");
-    content.append(currentTaskContent);
+    const currentProject = document.querySelector(".project.active");
+    currentProject.append(currentTaskContent);
 }

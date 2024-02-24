@@ -23,7 +23,7 @@ export function getInputValues(){
 
     return inputVals;
 }
-export function clearForm(){
-    const form = document.getElementById("form");
+export function clearForm(formID){
+    const form = document.getElementById(formID);
     form.reset();
 }

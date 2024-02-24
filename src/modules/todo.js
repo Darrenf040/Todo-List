@@ -1,6 +1,7 @@
 import '../styles/todoCard.css';
-import { todoDialog, clearForm } from './dialog';
+import { todoDialog, clearForm, getInputValues } from './dialog';
 import { updateCardValues, addCardToDisplay } from './cardCreation';
+import { projects } from './projects';
 export default class Todo{
     constructor(dueDate, description, priority){
         const allTasks = document.querySelectorAll(".task-container");
@@ -19,9 +20,12 @@ export default class Todo{
         const confirm = document.querySelector(".add-task");
 
         confirm.addEventListener("click", () => {
-            addCardToDisplay(updateCardValues());
+            const currentTask = updateCardValues();
+            addCardToDisplay(currentTask);
+            projects.project1.push(currentTask);
             modal.close();
-            clearForm();
+            clearForm("form-todo");
+
         })//event listener
     }
 }
