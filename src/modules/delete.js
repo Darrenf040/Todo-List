@@ -1,4 +1,3 @@
-import { projects } from "./projects";
 export function deleteBtn(taskContainer){
         const cardDeleteBtn = taskContainer.querySelector(".delete");
         cardDeleteBtn.addEventListener("click", (e)=> {

@@ -48,4 +48,14 @@ submitProject.addEventListener("click", () => {
 
     })
 })
-
+const defaultProject = document.querySelector(".default");
+defaultProject.addEventListener('click', ()=> {
+    const allProjectTabs = document.querySelectorAll("[data-project-name]");
+    allProjectTabs.forEach(project =>{
+        project.classList.remove("active")
+    })
+    const defaultProjects = document.querySelectorAll(".default");
+    defaultProjects.forEach(project => {
+        project.classList.add("active");
+    })
+})

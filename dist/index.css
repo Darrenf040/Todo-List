@@ -52,7 +52,7 @@ h1,p{
     font-size: 24px;
 }
 .nest:hover{
-    color: gray;
+    color: green;
 }
 dialog{
     padding: 0;
