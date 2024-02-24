@@ -23,7 +23,9 @@
                         <h1>Projects</h1>
                         <button type="button" class="projects-btn create-btn">+</button>
                     </div>
-                    <p class="nest">project1</p>
+                    <div class="projects-toggle-container">
+                        <p class="nest projects-toggle active" data-project-name="project1">project1</p>
+                    </div>
                     <div class=" notes action-container">
                         <h1>Notes</h1> 
                         <button type="button" class="notes-btn create-btn">+</button>
@@ -31,8 +33,9 @@
                 </div>
             </div>
             <div class="content">
+                <div class="project active" data-project-name="project1"></div>
                 <dialog class="todo-dialog">
-                    <form id="form">
+                    <form id="form-todo">
                         <label for="title">Title</label>
                         <input type="text" name="" id="title"><br>
                         <label for="date">Due Date</label>
@@ -49,6 +52,13 @@
                             <button type="button" class="add-task">Add Task</button>
                             <button type="button" class="confirm-edit">Confirm</button>
                         </div>
+                    </form>
+                </dialog>
+                <dialog class="projects-dialog">
+                    <form id="form-project">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" name="" id="projectName"><br>
+                        <button type="button" class="submit-project">Add Project</button>
                     </form>
                 </dialog>
                 <dialog class="details-dialog">
