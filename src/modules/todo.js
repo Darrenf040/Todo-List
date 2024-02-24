@@ -1,4 +1,5 @@
 import '../styles/todoCard.css';
+import '../styles/project.css'
 import { todoDialog, clearForm, getInputValues } from './dialog';
 import { updateCardValues, addCardToDisplay } from './cardCreation';
 import { projects } from './projects';
