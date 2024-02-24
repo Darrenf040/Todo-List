@@ -12,7 +12,7 @@ function createProjectTab(projectName){
 function createProjectContainer(projectName){
     const projectContianer = document.createElement("div");
     projectContianer.classList.add("project");
-    projectContianer.setAttribute(`data-projects-name`, projectName);
+    projectContianer.setAttribute(`data-project-name`, projectName);
     return projectContianer;
 }
 const projectsBtn = document.querySelector(".projects-btn");
@@ -24,8 +24,9 @@ projectsBtn.addEventListener("click", () =>{
 const submitProject = document.querySelector(".submit-project");
 submitProject.addEventListener("click", () => {
     const projectName = document.getElementById("projectName").value;
+    const createdProjectTab = createProjectTab(projectName);
     const projectsContainer = document.querySelector(".projects-toggle-container");
-    projectsContainer.append(createProjectTab(projectName));
+    projectsContainer.append(createdProjectTab);
     const projectDiv = createProjectContainer(projectName);
     const content = document.querySelector(".content");
     content.appendChild(projectDiv);
@@ -35,11 +36,16 @@ submitProject.addEventListener("click", () => {
     const projectDialog = document.querySelector(".projects-dialog");
     projectDialog.close();
 
-    const projectToggles = document.querySelectorAll(".projects-toggle"); 
-    projectToggles.forEach(project => {
-        project.addEventListener("click", () => {
-            project.classList.remove("active");
+    createdProjectTab.addEventListener("click", () => {
+        const allProjectTabs = document.querySelectorAll("[data-project-name]");
+        allProjectTabs.forEach(project =>{
+            project.classList.remove("active")
         })
+        const activeProjects = document.querySelectorAll(`[data-project-name=${projectName}]`);
+        activeProjects.forEach(project => {
+            project.classList.add("active");
+        })
+
     })
 })
 
